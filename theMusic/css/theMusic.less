@@ -1,0 +1,252 @@
+*{margin: 0;padding: 0;}
+html,body{height: 100%;overflow: hidden;}
+ul{list-style: none;}
+a{text-decoration: none;display: block;}
+a,input,button{-webkit-tap-highlight-color: rgba(0,0,0,0);-webkit-appearance: none;outline: none;border: none;}
+img{display: block;}
+@rem:(1080/16rem);
+@import "../css/component/lunBo.less";
+@import "../css/component/nav.less";
+@import "../css/extend/clearfix.less";
+#wrap{
+    position: relative;
+    font-size: (16/@rem);
+    height: 100%;
+    overflow: hidden;
+    background-color: #eee;
+    .head{
+        position: absolute;
+        width: 100%;
+        height: 100px;
+        background-color: #232323;
+        height: (270/@rem);
+        .head-top{
+            height: (135/@rem);
+            .logo{
+                padding: (26/@rem) (17/@rem) (21/@rem) (17/@rem);
+                float: left;
+                img{
+                    width: (240/@rem);
+                }
+            }
+            .menuBtn{
+                float: left;
+                width: (129/@rem);
+                height: (135/@rem);
+                background-image: url("../img/menuBtn.png");
+                background-repeat: no-repeat;
+                background-position: center (16/@rem);
+                background-size: (82/@rem) (233/@rem);
+                &.active{
+                    background-position: center (-120/@rem);
+                }
+            }
+            .btns{
+                float: right;
+                padding-top: (21/@rem);
+                a{
+                    float: left;
+                    width: (111/@rem);
+                    height: (78/@rem);
+                    line-height: (78/@rem);
+                    background-color: #690;
+                    color: #ccc;
+                    margin-right: (15/@rem);
+                    font-size: (45/@rem);
+                    text-align: center;
+                    border-radius: (8/@rem);
+                    &.search{
+                        width: (130/@rem);
+                        height: (88/@rem);
+                        line-height: (88/@rem);
+                        color: #fff;
+                        margin-right: (30/@rem);
+                        margin-top: (3/@rem);
+                        font-weight: bold;
+                        border-radius: (10/@rem);
+                    }
+                }
+            }
+        }
+        .head-bottom{
+            height: (103/@rem);
+            padding: (16/@rem);
+            form{
+                height: 100%;
+                // background-color: pink;
+                input[type = "text"]{
+                    float: left;
+                    box-sizing: border-box;
+                    width: (829/@rem);
+                    height: (103/@rem);
+                    background-color: #999999;
+                    padding: (5/@rem) (10/@rem);
+                    border: 1px solid #5a5a5a;
+                    font-size: (41/@rem);
+                    color: #333;
+                    border-radius: (15/@rem) 0 0 (15/@rem);
+                    &::-webkit-input-placeholder{
+                        color: #333;
+                    }
+                    &:focus{
+                        background-color: white;
+                    }
+                }
+                input[type = "submit"]{
+                    float: right;
+                    width: (203/@rem);
+                    height: (103/@rem);
+                    border: none;
+                    background-color: #414040;
+                    color: #fff;
+                    font-size: (41/@rem);
+                    border-radius: 0 (15/@rem) (15/@rem) 0;
+                }
+            }
+        }
+        .mask{
+            // .1-px(pink);
+            position: absolute;
+            width: 100%;
+            left: 0;
+            top: (135/@rem);
+            padding: (10/@rem) 0;
+            border-top: 1px solid #6a6a6a;
+            background-color: rgba(0,0,0,.8);
+            display: none;
+            z-index: 1;
+            &>li{
+                width: 22.5%;
+                height: (135/@rem);
+                line-height: (135/@rem);
+                font-size: (54/@rem);
+                text-align: center;
+                float: left;
+                a{
+                    color: white;
+                }
+            }
+        }
+    }
+    .content{
+        position: absolute;
+        top: (270/@rem);
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background-color: #eee;
+        overflow: hidden;
+        .tap-wrap{
+            width: (1046/@rem);
+            background-color: #fff;
+            margin: 0 auto;
+            overflow: hidden;
+            .tap-head{
+                height: (135/@rem);
+                line-height: (135/@rem);
+                h2{
+                    float: left;
+                    font-size: 1rem;
+                }
+                span{
+                    float: right;
+                    font-size: .8rem;
+                }
+            }
+            .tap-nav{
+                height: (105/@rem);
+                line-height: (105/@rem);
+                position: relative;
+                a{
+                    float: left;
+                    height: (105/@rem);
+                    // width: (120/@rem);
+                    margin-left: (20/@rem);
+                    font-size: (44/@rem);
+                    text-align: center;
+                    color: #6b6b6b;
+                }
+                .smallGreen{
+                    position: absolute;
+                    left: 0;
+                    bottom: (10/@rem);
+                    // width: (120/@rem);
+                    height: (9/@rem);
+                    background-color: #6f900d;
+                }
+            }
+            .tap-content{
+                &:extend(.clearfix all);
+                width: 300%;
+                ul{
+                    &:extend(.clearfix all);
+                    float: left;
+                    width: 33.33333%;
+                    li{
+                        box-sizing: border-box;
+                        width: (506/@rem);
+                        margin: (8/@rem);
+                        padding: (5/@rem);
+                        font-size: (40/@rem);
+                        background-color: #efefef;
+                        color: #000000;
+                        overflow: hidden;
+                        float: left;
+                        a{
+                            img{
+                                width: 100%;
+                            }
+                            span{
+                                overflow: hidden;
+                                text-overflow:ellipsis;
+                                white-space: nowrap;
+                                display: block;
+                            }
+                        }
+                        .tap-discuss{
+                            .right{
+                                float: left;
+                                margin-right: (20/@rem);
+                                span:nth-child(1){
+                                    vertical-align: middle;
+                                    display: inline-block;
+                                    width: (35/@rem);
+                                    height: (35/@rem);
+                                    background: url("../img/ice.png") no-repeat;
+                                }
+                            }
+                            .left{
+                                float: left;
+                                span:nth-child(1){
+                                    vertical-align: middle;
+                                    display: inline-block;
+                                    width: (35/@rem);
+                                    height: (35/@rem);
+                                    background: url("../img/ice.png") no-repeat;
+                                    background-position: 0 -0.8rem;
+                                }
+                            }
+                        }
+                    }
+                }
+                .tap-loading{
+                    background: url("../img/loading.gif") no-repeat;
+                    background-position: center;
+                    height: 10rem;
+                    opacity: 0;
+                }
+            }
+        }
+    }
+    .scrollBar{
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 4px;
+        height: 100%;
+        background-color: deeppink;
+        opacity: 0;
+        z-index: 9;
+        transition: 1s opacity;
+    }
+}

@@ -1,0 +1,248 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+li{
+    list-style: none;
+}
+.top_bar_wrapper{
+    width: 100%;
+    min-width: 1250px;
+    height: 40px;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+.bar_wrapper{
+    width: 1250px;
+    height: 40px;
+    line-height: 40px;
+    /* background-color:rgba(0, 0, 0, 0.8); */
+    margin: 0 auto;
+}
+.left_list li{
+    float: left;
+   
+    /* margin-right: 10px; */
+}
+.left_list a,
+.right_list a{
+    display: block;
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.562);
+    font-size: 4px;
+}
+.right_list{
+    float: right;
+}
+.right_list li{
+    float: left;
+    display: block;
+}
+.left_list a:hover{
+    color: #fff;
+}
+.right_list a:hover{
+    color: #fff;
+}
+.line{
+    width: 1px;
+    height: 10px;
+    background-color: rgb(128, 123, 123);
+    margin: 15px 8px;
+}
+.box1{
+    width: 60px;
+    background-color: rgba(255, 255, 255, 0.2);
+    text-align: center;
+    margin-left: 20px;
+}
+.box1 a:hover{
+    color: orange;
+    background-color: #fff;
+}
+.box3:hover .code,
+.box3:hover::after{
+    display: block;
+    height: 148px;
+}
+/* 设置app下拉 */
+.code{
+    position: absolute;
+    z-index: 1;
+    left: -40px;
+    width: 124px;
+    height: 0;
+    overflow: hidden;
+    line-height: 1;
+    background-color:#fff;
+    text-align:center;
+    /* padding:10px; */
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.3);
+    /* transition用于为样式添加过渡效果 */
+    transition: height 0.5s;  
+}
+.box3{
+    position: relative;
+}
+.box3::after{
+    display: none;
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 0;
+    border: 8px solid transparent;
+    border-bottom-color: white;
+    bottom: 0;
+    left:14px;
+}
+
+.code .img{
+    margin-bottom: 10px;
+}
+.box2{
+    color: black;
+    font-size: 16px;
+}
+.first{
+    width: 100%;
+    height: 100px;
+    position: relative;
+}
+.second_bar_wrapper{
+    width: 1250px;
+    background-color: #fff;
+    margin: 0 auto;
+}
+.xbt_box img{
+    float: left;
+    width: 55px;
+    height: 55px;
+    margin-top: 22.5px;
+}
+/* 隐藏全部商品 */
+.hidden{
+    /* 隐藏 */
+    /* opacity: 0; */
+    visibility: hidden;
+}
+.second_bar_wrapper .middle_wrapper{
+    float: left;
+    width: 800px;
+    height: 100px;
+    line-height: 100px;
+    background-color: #fff;
+    margin-left: 70px;
+}
+.middle_menu li>a {
+    float: left;
+    display: block;
+    text-decoration: none;
+    color: black;
+    margin-right: 25px;
+}
+.middle_list li a:hover{
+    color: orange;
+}
+/* 下拉层 */
+.xiala_info{
+    width: 100%;
+    /* height: 228px; */
+    height: 0;
+    overflow: hidden;
+    background-color: #fff;
+    position: absolute;
+    z-index: 5;
+    top: 100px;
+    left: 0;
+    /* 下拉过渡 */
+    transition: height 0.5s;
+}
+/* 设置除第九个和第十个外都可以弹出下拉层 */
+.middle_menu >li:not(.left_border):not(:nth-child(9)):not(:nth-child(10)):not(.left_menu):hover ~ .xiala_info,
+/* .middle_menu li >.xiala_shows:hover ~.xiala_info, */
+/* .middle_menu li :not(.left_border):hover ~ .xiala_info, */
+.middle_menu .xiala_shows:hover ~ .xiala_info,
+.xiala_info:hover{
+    height: 228px; 
+    border-top: 1px solid rgb(224, 224, 224);
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.3);
+}
+.second_bar_wrapper .right{
+    float: right;
+    width: 240px;
+    height: 50px;
+    padding: 0px;
+    margin-top: 25px;
+}
+.right_search .search{
+    box-sizing: content-box;
+    float: left;
+    width: 165px;
+    height: 50px;
+    font-size: 16px;
+    padding: 0 10px;
+    border: none;
+    border: 1px solid rgb(224, 224, 224);
+    outline: none;
+}
+/* :focus设置input和button获取焦点后的样式 */
+.right_search .search:focus,
+.right_search .search:focus+.submit{
+    border-color: #ff6700;
+}
+.right_search .submit{
+    width: 50px;
+    height: 50px;
+    border-top: none;
+    border: 1px solid rgb(224, 224, 224);
+    background-color: #fff;
+}
+.right_search .submit:hover{
+    background-color: #ff6600;
+    color: white;
+}
+/* 左侧列表 */
+.left_menu{
+    width: 234px;
+    height: 450px;
+    position: absolute;
+    z-index: 2;
+    left: 146px;
+    top: 100px;
+    background-color: rgb(0, 0, 0,.6);
+    line-height: 1;
+    padding-bottom: 0px;
+    padding: 10px 0;
+    /* padding-left: 20px; */
+}
+.left_menu li{
+    width: 194px;
+    height: 45px;
+    line-height: 45px;
+    color: #fff;
+    padding: 0 20px;
+}
+.left_menu li:hover{
+    background-color: #ff6700;
+}
+/* banner轮播图 */
+.banner_wrapper{
+    width: 1010px;
+    height: 470px;
+    position: absolute;
+    float: right;
+    right: 146px;
+}
+.banner_wrapper .banner_img img{
+    width: 1010px;
+    height: 470px;
+}
+/* .pointer{
+    position: absolute;
+    float: left;
+    z-index: 100;
+}
+.pointer a{
+    width: 6px;
+    height: 6px;
+    background-color: brown;
+} */

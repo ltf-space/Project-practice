@@ -1,0 +1,37 @@
+.carousel-wrap{
+    position: relative;
+    &>.list{
+        list-style: none;
+        overflow: hidden;
+        position: absolute;
+        
+        &>li{
+            float: left;
+            &>a{
+                display: block;
+                &>img{
+                    display: block;
+                    width: 100%;
+                }
+            }
+        }
+    }
+    &>.point-wrap{
+        position: absolute;
+        bottom:0;
+        width: 100%;
+        text-align: center;
+        z-index: 1;
+        &>span{
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: green;
+            margin-left: 5px;
+            &.active{
+                background-color: pink;
+            }
+        }
+    }
+}
