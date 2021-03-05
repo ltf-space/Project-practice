@@ -5,12 +5,12 @@
         if(typeof node === "object" && typeof node["transform"] === "undefined"){
             node["transform"] = {};
         }
-        if(arguments.length >= 3){
+        if(arguments.length >= 3){//参数大于等于3
             // 设置
             var text = "";
             node["transform"][type] = val;
             for(item in node["transform"]){
-                if(node["transform"].hasOwnProperty(item)){
+                if(node["transform"].hasOwnProperty(item)){//hasOwnProperty:包含
                     switch(item){
                         case "translateX":
                         case "translateY":
@@ -53,7 +53,7 @@
         if(carouselWrap){
             var pointslength = arr.length;
             // 无缝
-            var needCarousel = carouselWrap.getAttribute("needCarousel");
+            var needCarousel = carouselWrap.getAttribute("needCarousel");//carouselWrap是否含有needCarousel属性
             // console.log(needCarousel);
             needCarousel = needCarousel == null?false:true;
             if(needCarousel){
@@ -123,16 +123,16 @@
                 // 点击第一组的第一张时，瞬间跳到第二组的第一张
                 // 点击第二组的最后一张时，瞬间跳到第一组的最后一张
                 if(needCarousel){
-                // index代表ul的位置，-index代表索引
-                var index = damu.css(ulNode,"translateX")/document.documentElement.clientWidth;
-                if(-index === 0){
-                    index = -pointslength;
-                }else if(-index === (arr.length-1)){
-                    index = -(pointslength-1);
+                    // index代表ul的位置，-index代表索引
+                    var index = damu.css(ulNode,"translateX")/document.documentElement.clientWidth;
+                    if(-index === 0){
+                        index = -pointslength;
+                    }else if(-index === (arr.length-1)){
+                        index = -(pointslength-1);
+                    }
+                    console.log(ulNode.transform);
+                    damu.css(ulNode,"translateX",index*document.documentElement.clientWidth);
                 }
-                console.log(ulNode.transform);
-                damu.css(ulNode,"translateX",index*document.documentElement.clientWidth);
-            }
                 
                 startX = TouchC.clientX;
                 startY = TouchC.clientY;

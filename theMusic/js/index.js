@@ -24,7 +24,7 @@ window.onload = function(){
             // 小绿的下标
             var now = 0;
             var smallGreen = content.parentNode.querySelector(".tap-nav .smallGreen");
-            var aNodes = content.parentNode.querySelectorAll(".tap-nav a");                   
+            var aNodes = content.parentNode.querySelectorAll(".tap-nav a");            
             var loadings = content.querySelectorAll(".tap-loading");
             damu.css(content,"translateX",-w);
             smallGreen.style.width = aNodes[0].offsetWidth+"px";
@@ -220,9 +220,9 @@ window.onload = function(){
             for(var i=0;i<liNodes.length;i++){
                 tools.removeClass(liNodes[i],"active");
             }
-            if(touchC.target.nodeName.toUpperCase()==="A"){
+            if(touchC.target.nodeName.toUpperCase()==="A"){//A代表a超链接，无论大小写点击都可以
                 tools.addClass(touchC.target.parentNode,"active");
-            }else if(touchC.target.nodeName.toUpperCase()==="LI"){
+            }else if(touchC.target.nodeName.toUpperCase()==="LI"){//LI代表每一个li，无论大小写点击都可以
                 tools.addClass(touchC.target,"active");
             }
         });
