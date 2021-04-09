@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="//at.alicdn.com/t/font_2194224_yztwd7kn3yi.css">
+    <!-- <script src=".../vue.js"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="./jquery-3.5.1.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/axios/0.21.0/axios.js"></script>
+    <style>
+        body{
+            background-color: rgba(116, 113, 113, 0.144);
+            width: 375px;
+            /* height: 300px; */
+        }
+        .win_banner{
+            width: 100%;
+            height: 40px;
+            text-align: center;
+            position: relative;
+            background-color: rgba(212, 203, 203, 0.61);
+            box-shadow: 0 0 10px rgba(0, 0, 0, .2);
+        }
+        .win_control{
+            height: 40px;
+            font-size: 18px;
+            line-height: 40px;
+            margin: auto;
+        }
+        .id{
+            margin: 0 auto;
+        }
+        .middle_wrapper{
+            width: 375px;
+            height: 100px;
+            position: absolute;
+            top: 200px;
+            /* padding: 0 10px 0 10px; */
+            display: flex;
+            align-items: center;
+            justify-content:space-evenly;
+        }
+        .window{
+            width: 130px;
+            height: 80px;
+            background-color: #bff;
+            border-radius: 10%;
+        }
+        .WINDOW{
+            width: 200px;
+            height: 150px;
+            background-color: #fff;
+            position: absolute;
+            left: 70px;
+            border-radius: 50px;
+            text-align: center;
+            display: none;
+        }
+        .button{
+            position: absolute;
+            top: 100px;
+            left: 140px;
+        }
+        #ispan{
+            display: block;
+            margin-top: 50px;
+        }
+        .window:active{
+            transform: translateY(-1px);
+            box-shadow: 0 0 10px rgba(0, 0, 0, .3);
+        }
+        .typeface{
+            display: block;
+            width: 130px;
+            height: 20px;
+            margin: 20px 10px;
+        }
+        .btn{
+            width: 130px;
+            height: 80px;
+            background-color: aqua;
+            border-radius: 10%;
+        }
+        .btn:active{
+            transform: translateY(-1px);
+            box-shadow: 0 0 10px rgba(0, 0, 0, .3);
+        }
+        .iconfont{
+            display: block;
+            width: 50px;
+            line-height: 80PX;
+            font-size: 50px;
+            margin: 0 auto;
+        }
+        .image{
+            position: absolute;
+            top: 450px;
+            left: 200px;
+            width: 200px;
+            height: 150px;
+            transform: rotateZ(25deg);
+        }
+        .image2{
+            width: 200px;
+            height: 150px;
+            position: absolute;
+            top: 450px;
+            left: 0px;
+            transform: rotateZ(-25deg);
+        }
+    </style>
+    <script type="text/javascript">
+        window.onload = function(){
+            //初始化请求
+            axios({
+                    methods:'get',
+                    url:'/status_bbt'
+                }).then(value=>{
+                    typeface.innerText = value.data.status;
+                })
+            var iconfont = document.querySelector(".iconfont");
+            var typeface = document.querySelector(".typeface");
+            var btn = document.querySelector(".btn");
+            var win = document.querySelector("#win");
+            //给btn绑定响应函数
+            btn.onclick = function(){
+
+                // axios请求
+                axios({
+                    methods:'get',
+                    url:'/hand_bbt'
+                }).then(response=>{
+                    typeface.innerText = response.data.status;
+                })
+                    //改变btn颜色
+                btn.style.backgroundColor = "#fff";
+                if(typeface.innerText === "Curtain status : closed"){
+                    typeface.innerText = "Curtain status : opend"; 
+                }else{
+                    typeface.innerText = "Curtain status : closed";
+                    btn.style.backgroundColor = "aqua";
+                }                  
+            }                 
+            win.onclick = function(){
+                        //打开弹框 
+                if(typeface.innerText === "Curtain status : opend"){
+                    //显示弹框
+                    WINDOW.style.display = "block";
+                }
+            }
+            const input = document.querySelector("input");
+            const WINDOW = document.querySelector(".WINDOW");
+                input.onclick = function(){
+                    //关闭弹框
+                    WINDOW.style.display = "none";
+                }
+            new Vue({
+                el:"#ispan",
+                data:{
+                    message:'Curtain status : ON'
+                }
+            })
+                                 
+        }
+                      
+    </script>
+</head>
+<body>
+        
+        <!-- 头部标题 -->
+        <div class="win_banner">
+            <h1 class="win_control">Car control of curtain</h1>
+        </div>
+
+        <div class="middle_wrapper">
+            <div id="win" class="window">
+                <span class="typeface">Curtain status : closed</span> 
+            </div>
+
+            <div class="WINDOW">
+                <span id="ispan">{{message}}</span>
+                <div class="button">
+                    <input type="button" value = "确认">
+                </div>
+            </div>
+
+            <div class="btn">
+                 <i class="iconfont icon-anniu"></i>
+            </div>
+        </div>
+       <div class="image">
+           <img src="./形象8.svg" alt="篮球">
+       </div>
+       <div class="image2">
+           <img src="./形象1.svg" alt="圣诞一家">
+       </div>
+</body>
+</html>

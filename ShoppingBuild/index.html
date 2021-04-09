@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>购物车</title>
+    <link rel="stylesheet" href="./index.css">
+    <script src="../vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="./index.js"></script>
+</head>
+<body>
+    <div id="order" >
+        <div v-if = "array.length">
+            <table>
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>书籍名称</th>
+                        <th>出版日期</th>
+                        <th>价格</th>
+                        <th>购买数量</th>
+                        <th>操作</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr v-for = "(arr,index) in array">
+                        <td>{{arr.id}}</td>
+                        <td>{{arr.name}}</td>
+                        <td>{{arr.time}}</td>
+                        <td>{{arr.price | showPrice}}</td>
+                        <td>
+                            <button @click = "decrement(index)" :disabled = "array[index].count <= 1">-</button>
+                            {{arr.count}}
+                            <button @click = "increment(index)">+</button>
+                        </td>
+                        <td><button @click = "removeHandle(index)">移除</button></td>
+                    </tr>
+                </tbody>
+            </table>
+            <h2>总价格:{{totlePrice | showPrice}}</h2>
+        </div>      
+        <h1 v-else><em>购物车已清空</em></h1>
+    </div>
+    
+</body>
+</html>
